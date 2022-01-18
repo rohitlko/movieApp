@@ -79,6 +79,7 @@ class MovieRepository @Inject constructor(private val movieService: MovieService
     val deferredResponse = movieService.getPopularMoviesAsync().await()
 
     return if (deferredResponse.isSuccessful) {
+        Log.d("ROHIT-TES", deferredResponse.body().toString());
       deferredResponse.body()?.movies
     } else {
       throw Exception()
